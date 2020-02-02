@@ -22,13 +22,17 @@ public class InventoryManager : MonoBehaviour
         allItems = new Item[maximumItems];
     }
 
+    public Item GetItemFromInventory(int index) {
+        return allItems[index];
+    }
+
     public void SetActiveInventoryMenu() {
         inventorySlots.SetActive(!inventorySlots.activeInHierarchy);
     }
 
     public void SetActiveItemButtons(bool isActive) {
         for(int i = 0; i < itemButtons.Length; i++) {
-            if(allItems[i] != null) itemButtons[i].interactable = isActive;
+            if(allItems[i] != null && !allItems[i].isUsed) itemButtons[i].interactable = isActive;
         }
     }
 
@@ -40,6 +44,7 @@ public class InventoryManager : MonoBehaviour
         for(int i = 0; i < allItems.Length; i++) {
             if(allItems[i] == null) {
                 allItems[i] = newItem;
+                itemButtons[i].GetComponent<Image>().sprite = allItems[i].sprite;
                 return;
             }
         }

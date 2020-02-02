@@ -2,7 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "NightManagerMuseum/Item", order = 0)]
-public class Item : ScriptableObject {
-    Sprite sprite;
+[System.Serializable]
+public class Item {
+    
+    public Sprite sprite;
+    public bool isUsed = false;
+
+    public Item(Sprite sprite) {
+        this.sprite = sprite;
+    }
 }
