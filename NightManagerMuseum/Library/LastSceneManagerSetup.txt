@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/NightManagerv1Grey.unity
+- path: C:/Users/King Kai/Downloads/2020GGJ-master(1)/2020GGJ-master/Assets/Scenes/Main.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
