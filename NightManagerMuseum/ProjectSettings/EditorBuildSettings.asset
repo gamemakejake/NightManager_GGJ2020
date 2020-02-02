@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/NightManagerv1Grey.unity
+    path: Assets/Scenes/NightManager Cutscene.unity
     guid: ad932fb4aaf460a44a3ca50c96b90951
   m_configObjects: {}
