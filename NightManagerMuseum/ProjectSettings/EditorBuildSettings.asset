@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/NightManagerv1Grey.unity
+    guid: ad932fb4aaf460a44a3ca50c96b90951
   m_configObjects: {}
