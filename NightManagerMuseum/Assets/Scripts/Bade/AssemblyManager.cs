@@ -19,7 +19,7 @@ public class AssemblyManager : MonoBehaviour
     public GameObject assemblyMenu;
     public Transform itemSpawnPoint;
     public Transform newSculpturePoint;
-    public Rect dropArea;
+    public RectTransform dropArea;
     public Button backButton;
     public Button lockButton;
     public Button mirrorHorzButton;
@@ -34,18 +34,21 @@ public class AssemblyManager : MonoBehaviour
     List<Image> allImages;
 
     public void SetActiveAssemblyMenu() {
+        inventory.SetActiveItemButtons(!assemblyMenu.activeInHierarchy);
         assemblyMenu.SetActive(!assemblyMenu.activeInHierarchy);
     }
 
     public void AddItemToAssemblyFromInventory(int index) {
         if(allDragItems == null) allDragItems = new List<DraggableItem>();
-        
+
         Item item = inventory.GetItemFromInventory(index);
+        if(item == null) return;
         inventory.itemButtons[index].interactable = false;
         item.isUsed = true;
 
         DraggableItem dragItem = Instantiate(draggableItemRef, itemSpawnPoint);
         dragItem.SetItemRef(item);
+        dragItem.SetAssemblyManager(this);
         dragItem.Initialize();
         allDragItems.Add(dragItem);
         SetCurrentItem(dragItem);
@@ -88,10 +91,22 @@ public class AssemblyManager : MonoBehaviour
     }
 
     public void MoveCurrentItemToPointer(PointerEventData eventData) {
-        var mousePos = eventData.position;
+        /*var mousePos = eventData.position;
         var rect = currentDraggableItem.GetComponent<RectTransform>();
-        if(!dropArea.Overlaps(new Rect(mousePos.x, mousePos.y, rect.sizeDelta.x, rect.sizeDelta.y))) {
-            currentDraggableItem.transform.position = mousePos;
+        if(dropArea.Overlaps(new Rect(mousePos.x, mousePos.y, rect.sizeDelta.x, rect.sizeDelta.y))) {
+            //currentDraggableItem.transform.position = Input.mousePosition;
+            currentDraggableItem.SetDrag
+        }*/
+
+        if (eventData.pointerEnter != null && eventData.pointerEnter.transform as RectTransform != null)
+            dropArea = eventData.pointerEnter.transform as RectTransform;
+
+        var rt = currentDraggableItem.GetComponent<RectTransform>();
+        Vector3 globalMousePos;
+        if (RectTransformUtility.ScreenPointToWorldPointInRectangle(dropArea, eventData.position, eventData.pressEventCamera, out globalMousePos))
+        {
+            rt.position = globalMousePos;
+            rt.rotation = dropArea.rotation;
         }
     }
 }

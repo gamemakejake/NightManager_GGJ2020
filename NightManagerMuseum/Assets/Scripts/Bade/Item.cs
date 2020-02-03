@@ -7,8 +7,9 @@ public class Item {
     
     public Sprite sprite;
     public bool isUsed = false;
+    public bool isEmpty;
 
-    public Item(Sprite sprite) {
-        this.sprite = sprite;
+    public Item(bool isEmpty) {
+        this.isEmpty = isEmpty;
     }
 }

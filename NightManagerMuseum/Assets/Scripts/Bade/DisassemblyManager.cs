@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DisassemblyManager : MonoBehaviour
 {
@@ -22,6 +23,13 @@ public class DisassemblyManager : MonoBehaviour
         currentSculpture = Instantiate(sculpture.sculptureToDisassemble, sculptureSpawnPoint);
     }
 
+    public void EnableDisassemblyMenu(GameObject sculpture) {
+        disassemblyMenu.SetActive(true);
+        inventory.SetActiveInventoryMenu();
+        inventory.SetActiveOpenCloseButton();
+        currentSculpture = Instantiate(sculpture, sculptureSpawnPoint);
+    }
+
     public void DisableDisassemblyMenu() {
         Destroy(currentSculpture);
         inventory.SetActiveInventoryMenu();
@@ -29,8 +37,10 @@ public class DisassemblyManager : MonoBehaviour
         disassemblyMenu.SetActive(false);
     }
 
-    public void AddSculpturePieceToInventory(Sprite item) {
-        inventory.AddItemToInventory(new Item(item));
+    public void AddSculpturePieceToInventory(Image item) {
+        Item itemToBeAdded = new Item(false); 
+        itemToBeAdded.sprite = item.sprite;
+        inventory.AddItemToInventory(itemToBeAdded);
         DisableDisassemblyMenu();
     }
 

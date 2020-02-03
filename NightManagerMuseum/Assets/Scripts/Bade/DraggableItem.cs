@@ -18,9 +18,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler
     AssemblyManager manager;
 
     public void Initialize() {
-        image = GetComponent<Image>();
         image.sprite = itemRef.sprite;
-        image.SetNativeSize();
+        image.GetComponent<RectTransform>().sizeDelta = new Vector2(image.sprite.texture.width, image.sprite.texture.height); 
 
         //outline.sprite = itemRef.sprite;
         outline.GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().sizeDelta;

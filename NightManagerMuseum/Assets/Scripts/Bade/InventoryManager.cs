@@ -12,14 +12,15 @@ public class InventoryManager : MonoBehaviour
     */
 
     public int maximumItems;
+    public Sprite defaultImage;
     public GameObject inventorySlots;
     public Toggle openClose;
-    public Button[] itemButtons;
+    public List<Button> itemButtons;
 
-    Item[] allItems;
+    List<Item> allItems;
 
-    public void Start() {
-        allItems = new Item[maximumItems];
+    private void Start() {
+        allItems = new List<Item>();
     }
 
     public Item GetItemFromInventory(int index) {
@@ -31,8 +32,8 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void SetActiveItemButtons(bool isActive) {
-        for(int i = 0; i < itemButtons.Length; i++) {
-            if(allItems[i] != null && !allItems[i].isUsed) itemButtons[i].interactable = isActive;
+        for(int i = 0; i < itemButtons.Count; i++) {
+            if(i < allItems.Count) itemButtons[i].interactable = isActive;
         }
     }
 
@@ -41,14 +42,41 @@ public class InventoryManager : MonoBehaviour
     }
 
     public void AddItemToInventory(Item newItem) {
-        for(int i = 0; i < allItems.Length; i++) {
-            if(allItems[i] == null) {
-                allItems[i] = newItem;
+        /*if(allItems == null) { 
+            allItems = new Item[10];
+            for(int i = 0; i < allItems.Length; i++) {
+                allItems[i] = new Item(true);
+            } 
+        }
+        else Debug.Log("Inventory exists. There are " + allItems.Length + " items");*/
+        if(allItems.Count > 9) return;
+
+        allItems.Add(newItem);
+        RepopulateButtons();
+
+        Debug.Log("Inventory exists. There are " + allItems.Count + " items");
+        //return;
+        
+        /*for(int i = 0; i < allItems.Count; i++) {
+            Debug.Log("Index: " + i + "; Empty? " + allItems[i].isEmpty);
+            allItems.Add(newItem);
+            itemButtons[i].GetComponent<Image>().sprite = allItems[i].sprite;
+            return;
+            Debug.Log("Iterating " + i);
+        }*/
+
+        //Debug.Log("No more room in inventory");
+    }
+
+    void RepopulateButtons() {
+        for(int i = 0; i < itemButtons.Count; i++) {
+            if(i < allItems.Count) {
+                Debug.Log(allItems[i].sprite.name);
                 itemButtons[i].GetComponent<Image>().sprite = allItems[i].sprite;
-                return;
             }
+            else itemButtons[i].GetComponent<Image>().sprite = defaultImage;
         }
 
-        Debug.Log("No more room in inventory");
+        Debug.Log("Buttons repopulated. " + itemButtons.Count);
     }
 }

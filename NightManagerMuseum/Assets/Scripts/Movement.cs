@@ -15,6 +15,7 @@ public class Movement : MonoBehaviour
 
 
     private Rigidbody2D rb;
+    
     //private Vector2 moveVelocity;
 
 
@@ -23,8 +24,6 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         walkingSFX = GetComponent<AudioSource>();
-
-
 
     }
 
@@ -48,7 +47,6 @@ public class Movement : MonoBehaviour
         }
 
         if (Input.GetAxis("Horizontal") > 0)
-        {
         {
             isPlaying = true;
             audioManager.Play("PlayerWalkSFX");
