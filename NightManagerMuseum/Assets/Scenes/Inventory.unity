@@ -1560,7 +1560,7 @@ RectTransform:
   m_GameObject: {fileID: 2215746310555252748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 1}
   m_Children: []
   m_Father: {fileID: 2215746311977634427}
   m_RootOrder: 0
@@ -1648,7 +1648,7 @@ RectTransform:
   m_GameObject: {fileID: 2215746311977634420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.59999996, y: 0.59999996, z: 1}
+  m_LocalScale: {x: 0.72, y: 0.72, z: 1}
   m_Children:
   - {fileID: 2215746310555252755}
   m_Father: {fileID: 775022625}
@@ -2666,7 +2666,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3694536360156052256}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3694536359492540906}
+        m_MethodName: DisableDisassemblyMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3694536360156052261
 GameObject:
   m_ObjectHideFlags: 0
@@ -3273,7 +3284,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7975117342303821858}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7975117342643465509}
+        m_MethodName: LockCurrentItem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7975117342303821863
 GameObject:
   m_ObjectHideFlags: 0
@@ -3452,7 +3474,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7975117343073505070}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7975117342643465509}
+        m_MethodName: RotateLeft
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7975117343073505059
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,7 +3591,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7975117343077555933}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7975117342643465509}
+        m_MethodName: MirrorVertically
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7975117343077555933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3722,7 +3766,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7975117343578352138}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7975117342643465509}
+        m_MethodName: RotateRight
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7975117343578352143
 GameObject:
   m_ObjectHideFlags: 0
@@ -3861,7 +3916,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7975117343967345545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7975117342643465509}
+        m_MethodName: SetActiveAssemblyMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7975117343967345545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4062,7 +4128,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7975117344250734163}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7975117342643465509}
+        m_MethodName: MirrorHorizontally
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &7975117344250734163
 MonoBehaviour:
   m_ObjectHideFlags: 0

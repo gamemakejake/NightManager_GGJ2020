@@ -19,7 +19,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void Initialize() {
         image.sprite = itemRef.sprite;
-        image.GetComponent<RectTransform>().sizeDelta = new Vector2(image.sprite.texture.width, image.sprite.texture.height); 
+        image.GetComponent<RectTransform>().sizeDelta = new Vector2(image.sprite.texture.height, image.sprite.texture.width); 
 
         //outline.sprite = itemRef.sprite;
         outline.GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().sizeDelta;
@@ -46,7 +46,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler
     }
 
     public void SetActiveOutline(bool isActive) {
-        outline.gameObject.SetActive(isActive);
+        outline.enabled = isActive;
     }
 
     public void FlipImage(int horz, int vert) {
@@ -55,7 +55,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler
     }
 
     public void RotateImage(int axis) {
-        var newRot = image.transform.localRotation.eulerAngles.z + (90f * axis);
+        var newRot = image.transform.localRotation.eulerAngles.z + (45f * axis);
         image.transform.localRotation = Quaternion.Euler(0, 0, newRot);
     }
 }
