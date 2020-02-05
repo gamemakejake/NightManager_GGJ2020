@@ -7,21 +7,23 @@ public class Movement : MonoBehaviour
 {
 
     public float speed;
+    public GameObject player;
+    public Animator animator;
+    public AudioManager audioManager;
+    public AudioSource walkingSFX;
+    public bool isPlaying = false;
+
+
     private Rigidbody2D rb;
-
-    private Vector2 moveVelocity;
-    
     //private Vector2 moveVelocity;
-
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
-
         walkingSFX = GetComponent<AudioSource>();
+
 
 
     }
@@ -29,14 +31,6 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
-        moveVelocity = moveInput.normalized * speed;
-    }
-
-
-    private void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
 
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, Input.GetAxis("Vertical") * speed * Time.deltaTime, 0f);
         
@@ -50,10 +44,18 @@ public class Movement : MonoBehaviour
         Vector3 characterScale = transform.localScale;
         if (Input.GetAxis("Horizontal") < 0)
         {
+
             characterScale.x = 0.1f;
         }
 
         if (Input.GetAxis("Horizontal") > 0)
+        {
+
+            characterScale.x = -0.1f;
+        }
+        transform.localScale = characterScale;
+
+        if (Input.GetButtonDown("Horizontal") || Input.GetButtonDown("Vertical"))
         {
             isPlaying = true;
             audioManager.Play("PlayerWalkSFX");
@@ -80,11 +82,5 @@ public class Movement : MonoBehaviour
         //{
         //    rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
         //}
-
     }
-
-    //private void FixedUpdate()
-    //{
-    //    rb.MovePosition(rb.position + moveVelocity * Time.fixedDeltaTime);
-    //}
 }

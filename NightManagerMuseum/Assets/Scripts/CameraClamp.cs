@@ -16,5 +16,7 @@ public class CameraClamp : MonoBehaviour
             Mathf.Clamp(targetToFollow.position.x, xWest, xEast),
             Mathf.Clamp(targetToFollow.position.y, yBottom, yTop),
             transform.position.z);
+
+        //transform.position = targetToFollow.position;
     }
 }

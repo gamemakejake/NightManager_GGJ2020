@@ -19,7 +19,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void Initialize() {
         image.sprite = itemRef.sprite;
-        image.GetComponent<RectTransform>().sizeDelta = new Vector2(image.sprite.texture.height, image.sprite.texture.width); 
+        image.GetComponent<RectTransform>().sizeDelta = new Vector2(image.sprite.texture.width, image.sprite.texture.height); 
 
         //outline.sprite = itemRef.sprite;
         outline.GetComponent<RectTransform>().sizeDelta = image.GetComponent<RectTransform>().sizeDelta;

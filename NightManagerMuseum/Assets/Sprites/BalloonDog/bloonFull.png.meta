@@ -41,13 +41,8 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 1
-<<<<<<< HEAD:NightManagerMuseum/Assets/Sprites/UI/BagOpen.png.meta
-  spriteExtrude: 0
-  spriteMeshType: 0
-=======
   spriteExtrude: 1
   spriteMeshType: 1
->>>>>>> 16e823027bdc87a434e300a777b9816a012a4a18:NightManagerMuseum/Assets/Sprites/BalloonDog/bloonFull.png.meta
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
